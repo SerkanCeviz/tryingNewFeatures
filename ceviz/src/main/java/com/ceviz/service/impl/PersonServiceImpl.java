@@ -5,6 +5,7 @@ import com.ceviz.mapper.PersonMapper;
 import com.ceviz.model.PersonDto;
 import com.ceviz.repository.PersonRepository;
 import com.ceviz.service.PersonService;
+import com.ceviz.service.rabbitService.RabbitProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
-
+    private final RabbitProducerService rabbitProducerService;
     private final PersonRepository repository;
     private final PersonMapper mapper;
 
@@ -23,6 +24,7 @@ public class PersonServiceImpl implements PersonService {
         if (repository.findByIdentificationNumber(dto.getIdentificationNumber()).isPresent()) {
             throw new RuntimeException(Messages.PERSON_EXIST);
         }
+        rabbitProducerService.sendMessage(dto.toString());
         return mapper.entityToDto(repository.save(mapper.dtoToEntity(dto)));
     }
 

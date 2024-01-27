@@ -1,7 +1,6 @@
 package com.ceviz.aop;
 
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.Level;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,7 +14,6 @@ import java.util.Arrays;
 @Component
 @Log4j2
 @Aspect
-@Slf4j
 public class Logger {
 
     @Pointcut("execution(* com.ceviz.controller.*.*(..))")

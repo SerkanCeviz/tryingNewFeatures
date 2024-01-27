@@ -1,6 +1,5 @@
 package com.ceviz.aop;
 
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
-        logger.error("SERKAN CEVİZ EXCEPTİON "+ fieldName+ " HATA MESAJIMIZ " + errorMessage);
+            logger.error("SERKAN CEVİZ EXCEPTİON " + fieldName + " HATA MESAJIMIZ " + errorMessage);
         });
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }

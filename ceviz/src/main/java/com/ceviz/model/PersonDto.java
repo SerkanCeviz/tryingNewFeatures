@@ -1,12 +1,11 @@
 package com.ceviz.model;
 
 import com.ceviz.constant.Messages;
-import com.ceviz.entity.Department;
-import com.ceviz.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,6 +20,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PersonDto implements Serializable {
 
     private UUID id;
@@ -42,7 +42,7 @@ public class PersonDto implements Serializable {
     @NotBlank(message = Messages.FIELD_NOT_NULL_NOT_BLANK_MESSAGE)
     private String phoneNumber;
 
-    private Role role;
+    private RoleDto role;
 
-    private Department department;
+    private DepartmentDto department;
 }

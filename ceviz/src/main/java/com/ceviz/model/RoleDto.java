@@ -24,5 +24,4 @@ public class RoleDto implements Serializable {
     @NotBlank(message = Messages.FIELD_NOT_NULL_NOT_BLANK_MESSAGE)
     private String name;
 
-    private PersonDto person;
 }

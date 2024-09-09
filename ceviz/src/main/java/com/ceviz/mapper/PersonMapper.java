@@ -1,6 +1,7 @@
 package com.ceviz.mapper;
 
 import com.ceviz.entity.Person;
+import com.ceviz.entity.PersonRedis;
 import com.ceviz.model.PersonDto;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -25,4 +26,8 @@ public interface PersonMapper extends BaseMapper<PersonDto, Person> {
     }
 
     Set<PersonDto> entitySetToDtoSet(Set<Person> personSet);
+
+    PersonRedis personToRedis(PersonDto person);
+
+    PersonDto redisToPersonDto(PersonRedis personRedis);
 }

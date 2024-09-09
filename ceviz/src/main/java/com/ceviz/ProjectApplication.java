@@ -2,15 +2,13 @@ package com.ceviz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class ProjectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProjectApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ProjectApplication.class, args);
+    }
 }

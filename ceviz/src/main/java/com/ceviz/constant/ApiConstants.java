@@ -11,5 +11,6 @@ public class ApiConstants {
     public static final String PERSON_URL = "/person";
     public static final String ROLE_URL = "/roles";
     public static final String ADD_SPEND = "/add-spend";
+    public static final String GET_BY_ID = "/getById";
 
 }

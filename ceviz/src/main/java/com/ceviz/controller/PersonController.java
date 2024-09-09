@@ -6,14 +6,7 @@ import com.ceviz.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Set;
@@ -40,5 +33,10 @@ public class PersonController {
     @GetMapping(ApiConstants.VARIABLE_ID)
     ResponseEntity<Set<PersonDto>> getPersonByCompanyId(@PathVariable UUID id) {
         return new ResponseEntity<>(service.getPersonByCompanyId(id), HttpStatus.OK);
+    }
+
+    @GetMapping(ApiConstants.GET_BY_ID + ApiConstants.VARIABLE_ID)
+    ResponseEntity<PersonDto> getPersonById(@PathVariable UUID id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 }

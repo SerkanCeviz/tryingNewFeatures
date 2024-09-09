@@ -12,6 +12,7 @@ public interface PersonService {
 
     Set<PersonDto> getPersonByCompanyId(UUID companyId);
 
+    PersonDto getById(UUID id);
 //    boolean isPersonWorking(Set<UUID> id);
 //
 //    boolean isPersonWorking(Set<UUID> id, UUID companyId);
